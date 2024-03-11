@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<a href="/">go home</a>
+<h1>User</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th></th>
+        <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${user.name}">Name</td>
+        <td th:text="${user.surname}">Surname</td>
+        <td>
+            <form method="GET" th:action="@{'/users/' + ${user.id} + '/edit'}">
+                <button type="submit">Edit</button>
+            </form>
+        </td>
+        <td>
+            <form th:method="delete" th:action="@{'/users/' + ${user.id}}" th:object="${user}">
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<a href="/">go home</a>
+<h1>Users</h1>
+<td>
+    <form th:action="@{'/users/new/'}" method="get">
+        <button type="submit">New</button>
+    </form>
+</td>
+<br/>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td>
+            <a th:href="@{'/users/' + ${user.id}}" th:text="${user.name}">name</a>
+        </td>
+        <td>
+            <a th:href="@{'/users/' + ${user.id}}" th:text="${user.surname}">surname</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

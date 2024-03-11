@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<a href="/">go home</a>
+<br/><br/>
+<form th:method="patch" th:action="@{'/users/' + ${user.id}}" th:object="${user}">
+    <label for="name">Enter Name:</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/><br/>
+    <label for="surname">Enter Surname:</label>
+    <input type="text" th:field="*{surname}" id="surname"/>
+    <br/><br/>
+    <input type="submit" value="Update"/>
+</form>
+</body>
+</html>
